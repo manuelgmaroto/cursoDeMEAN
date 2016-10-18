@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Calculadora</title>
+        <script type="text/javascript" src="js/calculadora.js"></script>
+        <style>
+            .container{
+                width: 20%;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        <h1>Calculadora</h1>
+
+        <table>
+            <tr>
+                <td  colspan="3"><input type="text" id="resultado"></td>
+                <td><input type="button" value="Del" id="delete" onclick="operacion(this)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" id="tecla7" onclick="operacion(this)"></td>
+                <td><input type="button" value="8" id="tecla8" onclick="operacion(this)"></td>
+                <td><input type="button" value="9" id="tecla9" onclick="operacion(this)"></td>
+                <td><input type="button" value="/" id="teclaDivision" onclick="operacion(this)"></td>
+
+            </tr>
+            <tr>
+                <td><input type="button" value="4" id="tecla4" onclick="operacion(this)"></td>
+                <td><input type="button" value="5" id="tecla5" onclick="operacion(this)"></td>
+                <td><input type="button" value="6" id="tecla6" onclick="operacion(this)"></td>
+                <td><input type="button" value="*" id="teclaMultiplicacion" onclick="operacion(this)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" id="tecla1" onclick="operacion(this)"></td>
+                <td><input type="button" value="2" id="tecla2" onclick="operacion(this)"></td>
+                <td><input type="button" value="3" id="tecla3" onclick="operacion(this)"></td>
+                <td><input type="button" value="-" id="teclaResta" onclick="operacion(this)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="." id="teclaPunto" onclick="operacion(this)"></td>
+                <td><input type="button" value="0" id="tecla0" onclick="operacion(this)"></td>
+                <td><input type="button" value="=" id="teclaIgual" ></td>
+                <td><input type="button" value="+" id="teclaSuma" onclick="operacion(this)"></td>
+            </tr>
+        </table>
+        </div>
+    </body>
+</html>
