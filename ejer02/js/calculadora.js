@@ -52,7 +52,7 @@ function Calculadora(){
 //delete memoria
 
 //nacesito clase intermecia que unieera la calculadora con la vista
-
+/*
 var calculadora1 = new Calculadora();
 
 
@@ -66,3 +66,4 @@ console.log(calculadora1.borrado());
 console.log(calculadora1.multiplicacion(10));
 console.log(calculadora1.multiplicacion(10));
 console.log(calculadora1.division(2));
+*/
