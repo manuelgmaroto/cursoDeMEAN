@@ -1,7 +1,9 @@
 
 function iniciar(){
     var teclas = document.getElementsByClassName("tecla");
-    alert(teclas.length);
+    document.getElementById("arrancar").click(function(){
+        alert("eeh");
+    })
 }
 
-document.addEventListener("onloa",iniciar());
+document.addEventListener("onload",iniciar());
