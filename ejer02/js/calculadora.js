@@ -1,48 +1,7 @@
 
 function Calculadora(){
-    this.resultado;
-    this.suma = function(num){
-        if(this.resultado){
-            this.resultado += num;
-            return this.resultado;
-        }else{
-            this.resultado = num;
-            return this.resultado;
-        }
-    }
-
-    this.resta = function(num){
-        if(this.resultado){
-            this.resultado -= num;
-            return this.resultado;
-        }else{
-            this.resultado = num;
-            return this.resultado;
-        }
-    }
-
-    this.multiplicacion = function(num){
-        if(this.resultado){
-            this.resultado *= num;
-            return this.resultado;
-        }else{
-            this.resultado = num;
-            return this.resultado;
-        }
-    }
-
-    this.division = function(num){
-        if(this.resultado){
-            this.resultado /= num;
-            return this.resultado;
-        }else{
-            this.resultado = num;
-            return this.resultado;
-        }
-    }
-
-    this.borrado = function(){
-        this.resultado = 0;
+    this.calcular = function(arg){
+        return eval(arg);
     }
 }
 
