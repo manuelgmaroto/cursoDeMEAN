@@ -33,7 +33,7 @@ function crearOperacion(){
 function calcular(){
     
     resultado.value = calculadora1.calcular(operacion);
-    operacion = 0;
+    
 }
 
 function borrar(){
