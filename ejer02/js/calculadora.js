@@ -1,8 +1,12 @@
 
+
+
 function Calculadora(){
-    this.calcular = function(arg){
-        return eval(arg);
-    }
+    
+}
+
+Calculadora.prototype.calcular = function(arg){
+    return eval(arg);
 }
 
 //Clase calculadora que le pases los valores e hiciera las operaciones
