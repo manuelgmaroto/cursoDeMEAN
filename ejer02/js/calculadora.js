@@ -3,7 +3,7 @@
 
 function Calculadora(){
     
-}
+    }
 
 Calculadora.prototype.calcular = function(arg){
     return eval(arg);
