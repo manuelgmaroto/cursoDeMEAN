@@ -2,12 +2,12 @@ window.addEventListener('load',iniciar);
 var calculadora1, operacion, resultado;
 
 function iniciar(){
-    document.getElementById("resultado").value = 0;
+    
     resultado = document.getElementById("resultado");
+    resultado.value = 0;
     calculadora1 = new Calculadora();
     
     var teclas = document.getElementsByClassName("tecla");
-    
     var teclaIgual = document.getElementById("teclaIgual");
     var teclaBorrar = document.getElementById("delete");
     
