@@ -9,6 +9,19 @@ Calculadora.prototype.calcular = function(arg){
     return eval(arg);
 }
 
+Calculadora.prototype.sumar = function(arg1,arg2){
+   
+  this.resultado = 0;
+  this.suma = function(num){
+      if(this.resultado){
+          this.resultado += num;
+         return this.resultado;
+      }else{
+          this.resultado = num;
+      return this.resultado;
+
+}
+
 //Clase calculadora que le pases los valores e hiciera las operaciones
 //un valor lo acumula
 //operar(operador,valor) cada vez manda el resultado

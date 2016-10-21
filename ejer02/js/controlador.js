@@ -27,15 +27,12 @@ function crearOperacion(){
         operacion = this.value;
         display.value = operacion;
     }
-    
 }
 
 function calcular(){
     resultado = calculadora1.calcular(operacion);
     display.value = resultado;
     operacion = resultado;
-    
-    
 }
 
 function borrar(){
