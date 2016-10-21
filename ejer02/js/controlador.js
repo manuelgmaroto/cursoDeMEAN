@@ -1,10 +1,10 @@
 window.addEventListener('load',iniciar);
-var calculadora1, operacion, resultado;
+var calculadora1, operacion, display,resultado;
 
 function iniciar(){
     
-    resultado = document.getElementById("resultado");
-    resultado.value = 0;
+    display = document.getElementById("resultado");
+    display.value = 0;
     calculadora1 = new Calculadora();
     
     var teclas = document.getElementsByClassName("tecla");
@@ -22,22 +22,24 @@ function iniciar(){
 function crearOperacion(){
     if(operacion){
         operacion += this.value;
-         resultado.value = operacion;
+         display.value = operacion;
     }else{
         operacion = this.value;
-        resultado.value = operacion;
+        display.value = operacion;
     }
     
 }
 
 function calcular(){
+    resultado = calculadora1.calcular(operacion);
+    display.value = resultado;
+    operacion = resultado;
     
-    resultado.value = calculadora1.calcular(operacion);
     
 }
 
 function borrar(){
-    resultado.value = 0;
+    display.value = 0;
     operacion = 0;
 }
 
