@@ -2,7 +2,8 @@ window.addEventListener('load',iniciar);
 //inicializo las variables para crear la calculadora, para la operacion, el display y el resultado
 var calculadora1, operacion, display,resultado;
 
-//funcion que inicia la calculadora cuando el documento está completamente cargado
+//funcion que inicia la calculadora cuando el documento está completamente cargado, asigna un 0 en el
+// display y lo escribe, inicializa las teclas para agregarles un evento 
 function iniciar(){
     
     display = document.getElementById("resultado");

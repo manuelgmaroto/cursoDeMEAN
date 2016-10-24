@@ -23,7 +23,7 @@ Calculadora.prototype.sumar = function(arg1){
 
 var calculadora2 = new Calculadora();
 
-console.log(calculadora2.sumar(10,20));
+console.log(calculadora2.sumar(10,20,40));
 console.log(calculadora2.sumar(10));
 
 //Clase calculadora que le pases los valores e hiciera las operaciones
