@@ -42,12 +42,12 @@ function deleteFirstElement(){
 
 function deleteFirstAndSecond(){
     //lt coge los dos primeros elementos de la lista
-    $("li").lt(2).remove();
+    $("li:lt(2)").remove();
 }
 
 function deletePreAndLast(){
     let position = $("li").length-3;
-    let liTodelete = $("li").gt(position);
+    let liTodelete = $("li:gt("+ position +")");
     liTodelete.remove();
 }
 
