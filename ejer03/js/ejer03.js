@@ -1,10 +1,11 @@
 $(document).ready(inicializeEvents);
-
+//TODO:cargar peliculas al iniciar
 function inicializeEvents(){
     $("#botonGuardar").click(addMovie);
     $("#botonModificar").click(modifyMovie);
     $("#botonBorrar").click(removeMovie);
     $("tr").click(classRemove);
+    peticionAjaxGenerica();
 }
 
 function addMovie(){
@@ -14,7 +15,7 @@ function addMovie(){
 }
 
 function modifyMovie(){
-    
+
 }
 
 function removeMovie(){
@@ -27,3 +28,26 @@ function classRemove(){
     $(this).addClass("remove");
     
 }
+
+function cargarPeliculas(){
+    $.get("http://localhost:8080/data/peliculas.json",resultadoGet);
+}
+
+function peticionAjaxGenerica(){
+    //llamamos al metodo de ajax de jquery y le pasamos datos clave valor
+    $.ajax({
+        //Puede ser una cadena, un array, un objeto
+        // ?nombre=Manuel&lugar=Madrid
+        data: {nombre:"Manuel",lugar:"Madrid"},
+        //Tipo de peticion http
+        type:"GET",
+        //tipo de dato esperado
+        dataType:"json",
+        //URL de comunicacion con el servicio
+        url: "https://localhost:8080/data/peliculas.json"
+    })
+    .done(peticionCompletada)
+    .fail(peticionFallida);
+}
+
+//Acabar peticion ajax
