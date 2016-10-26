@@ -38,7 +38,7 @@ function peticionAjaxGenerica(){
     $.ajax({
         //Puede ser una cadena, un array, un objeto
         // ?nombre=Manuel&lugar=Madrid
-        data: {nombre:"Manuel",lugar:"Madrid"},
+        data: "data",
         //Tipo de peticion http
         type:"GET",
         //tipo de dato esperado
