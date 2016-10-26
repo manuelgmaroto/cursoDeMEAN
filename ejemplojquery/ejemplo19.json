@@ -1,0 +1,24 @@
+{
+    "animales":[
+        {
+            "id":1,
+            "nombre":"john palmer",
+            "tipo":"tigre de bengala"
+        },
+         {
+            "id":2,
+            "nombre":"leo ",
+            "tipo":"leon"
+        },
+         {
+            "id":3,
+            "nombre":"babe",
+            "tipo":"cerdo"
+        },
+         {
+            "id":4,
+            "nombre":"pantera rosa",
+            "tipo":"pantera"
+        }
+    ]
+}
