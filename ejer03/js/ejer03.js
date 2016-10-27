@@ -6,6 +6,7 @@ function inicializeEvents(){
     $("#botonBorrar").click(removeMovie);
     $("tr").click(classRemove);
     peticionAjaxGenerica();
+    $("#enviar").click(enviarDatos);
 }
 
 function addMovie(){
@@ -64,4 +65,17 @@ function peticionFallida(jqXHR,status,error){//el jqXHR es el objeto ajax que lo
     console.log("Error al procesar la peticion");
     console.log("Status " + status);
     console.log("Error " + error );
+}
+
+function enviarDatos(){
+    $.ajax({
+        data: {"titulo":"Lo que el viento se llevo","director":"Sam Smith","sinopsis":"estalla la guerra y todo arde","año":"200AC"},
+        type: "POST",
+        dataType : "json",
+        url: "http://localhost:3000peliculas"
+    }).done(envioCompleto).fail(peticionFallida);
+}
+
+function envioCompleto(){
+    alert("ole");
 }
