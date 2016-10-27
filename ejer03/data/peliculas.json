@@ -6,6 +6,27 @@
             "director":"Luis Garcia Berlanga",
             "sinopsis":"El marqués de Leguineche organiza una cacería",
             "fecha":1978
+        },
+        {
+            "id": 2,
+            "titulo":"Cazafantasmas",
+            "director":"John Smith",
+            "sinopsis":"Un grupo de tíos cazan fastasmas en Nueva York",
+            "fecha":1987
+        },
+        {
+            "id": 3,
+            "titulo":"Batman",
+            "director":"Adam Smith",
+            "sinopsis":"Un tío se disfraza de murciélago y sale por la noche",
+            "fecha":1990
+        },
+        {
+            "id": 4,
+            "titulo":"La leyenda de la ciudad sin nombre",
+            "director":"Fred Smith",
+            "sinopsis":"Una ciudad del oeste se desmadra",
+            "fecha":1972
         }
     ]
 }
