@@ -6,7 +6,7 @@ function inicializeEvents(){
     $("#botonBorrar").click(removeMovie);
     $("tr").click(classRemove);
     peticionAjaxGenerica();
-    $("#enviar").click(enviarDatos);
+    $("#botonGuardar").click(enviarDatos);
 }
 
 function addMovie(){
@@ -68,11 +68,15 @@ function peticionFallida(jqXHR,status,error){//el jqXHR es el objeto ajax que lo
 }
 
 function enviarDatos(){
+    let nuevaPelicula = $("#tituloPelicula").val();
+    let nuevoDirector = $("#directorPelicula").val();
+    let nuevaSinopsis = $("#sinopsisPelicula").val();
+    let nuevaFecha = $("#fechaPelicula").val();
     $.ajax({
-        data: {"titulo":"Lo que el viento se llevo","director":"Sam Smith","sinopsis":"estalla la guerra y todo arde","año":"200AC"},
+        data: {"titulo": nuevaPelicula,"director":nuevoDirector,"sinopsis": nuevaSinopsis,"fecha":nuevaFecha},
         type: "POST",
         dataType : "json",
-        url: "http://localhost:3000peliculas"
+        url: "http://localhost:3000/peliculas"
     }).done(envioCompleto).fail(peticionFallida);
 }
 
