@@ -6,7 +6,7 @@ function inicializeEvents(){
     $("#botonBorrar").click(removeMovie);
     $("tr").click(classRemove);
     peticionAjaxGenerica();
-    $("#botonGuardar").click(enviarDatos);
+    $("#botonGuardar").click(crearDatos);
 }
 
 
@@ -62,13 +62,11 @@ function peticionFallida(jqXHR,status,error){//el jqXHR es el objeto ajax que lo
     console.log("Error " + error );
 }
 
-function enviarDatos(){
-    let nuevaPelicula = $("#tituloPelicula").val();
-    let nuevoDirector = $("#directorPelicula").val();
-    let nuevaSinopsis = $("#sinopsisPelicula").val();
-    let nuevaFecha = $("#fechaPelicula").val();
+function enviarDatos(arg){
+    
+
     $.ajax({
-        data: {"titulo": nuevaPelicula,"director":nuevoDirector,"sinopsis": nuevaSinopsis,"fecha":nuevaFecha},
+        data: arg,
         type: "POST",
         dataType : "json",
         url: "http://localhost:3000/peliculas"
@@ -77,4 +75,13 @@ function enviarDatos(){
 
 function envioCompleto(){
     alert("ole");
+}
+
+function crearDatos(){
+    let nuevaPelicula = $("#tituloPelicula").val();
+    let nuevoDirector = $("#directorPelicula").val();
+    let nuevaSinopsis = $("#sinopsisPelicula").val();
+    let nuevaFecha = $("#fechaPelicula").val();
+    let mensaje = {"titulo": nuevaPelicula,"director":nuevoDirector,"sinopsis": nuevaSinopsis,"fecha":nuevaFecha};
+    enviarDatos(mensaje);
 }
