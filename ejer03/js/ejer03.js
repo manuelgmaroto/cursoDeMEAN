@@ -81,6 +81,7 @@ function envioCompleto(){
 }
 */
 
+//Crea el objeto de datos para enviar
 function crearDatos(){
     let nuevaPelicula = $("#tituloPelicula").val();
     let nuevoDirector = $("#directorPelicula").val();
