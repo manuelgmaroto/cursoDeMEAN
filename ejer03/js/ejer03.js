@@ -1,7 +1,7 @@
 $(document).ready(inicializeEvents);
 //TODO:cargar peliculas al iniciar
 function inicializeEvents(){
-    $("#botonGuardar").click(addMovie);
+    
     $("#botonModificar").click(modifyMovie);
     $("#botonBorrar").click(removeMovie);
     $("tr").click(classRemove);
@@ -9,11 +9,6 @@ function inicializeEvents(){
     $("#botonGuardar").click(enviarDatos);
 }
 
-function addMovie(){
-    $("#tablaPeliculas").append("<tr><td>Uno</td><td>Dos</td><td>Tres</td><td>Cuatro</td><td>Cinco</td></tr>");
-    $("tr").click(classRemove);
-    //TODO:que no borre la fila de th
-}
 
 function modifyMovie(){
 
