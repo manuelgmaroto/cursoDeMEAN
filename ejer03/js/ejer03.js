@@ -1,12 +1,15 @@
 $(document).ready(inicializeEvents);
+var accion, datosPelicula;
 //TODO:cargar peliculas al iniciar
 function inicializeEvents(){
     
     $("#botonModificar").click(modifyMovie);
     $("#botonBorrar").click(removeMovie);
     $("tr").click(classRemove);
+    accion = "GET";
     peticionAjaxGenerica();
     $("#botonGuardar").click(crearDatos);
+    
 }
 
 
@@ -34,9 +37,9 @@ function peticionAjaxGenerica(){
     $.ajax({
         //Puede ser una cadena, un array, un objeto
         // ?nombre=Manuel&lugar=Madrid
-        data: "data",
+        data: datosPelicula,
         //Tipo de peticion http
-        type:"GET",
+        type: accion,
         //tipo de dato esperado
         dataType:"json",
         //URL de comunicacion con el servicio
@@ -61,7 +64,7 @@ function peticionFallida(jqXHR,status,error){//el jqXHR es el objeto ajax que lo
     console.log("Status " + status);
     console.log("Error " + error );
 }
-
+/*
 function enviarDatos(arg){
     
 
@@ -76,12 +79,14 @@ function enviarDatos(arg){
 function envioCompleto(){
     alert("ole");
 }
+*/
 
 function crearDatos(){
     let nuevaPelicula = $("#tituloPelicula").val();
     let nuevoDirector = $("#directorPelicula").val();
     let nuevaSinopsis = $("#sinopsisPelicula").val();
     let nuevaFecha = $("#fechaPelicula").val();
-    let mensaje = {"titulo": nuevaPelicula,"director":nuevoDirector,"sinopsis": nuevaSinopsis,"fecha":nuevaFecha};
-    enviarDatos(mensaje);
+    datosPelicula = {"titulo": nuevaPelicula,"director":nuevoDirector,"sinopsis": nuevaSinopsis,"fecha":nuevaFecha};
+    accion = "POST";
+    peticionAjaxGenerica();
 }
