@@ -1,0 +1,1 @@
+let es : string = 'asd';
