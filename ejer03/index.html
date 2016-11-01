@@ -19,28 +19,46 @@
         <div class="container">
             <h1>Fichas de películas</h1>
             <div class="content">
-                <h2>Introduce los datos</h2>
-                <form action="">
-                    <label for="idPelicula">Id</label>
-                    <input type="text" id="idPelicula" name="idPelicula" size="3" disabled><br>   
-                    <label for="tituloPelicula">Título</label>
-                    <input type="text" id="tituloPelicula" name="titulo"><br>
-                    <label for="directorPelicula">Director</label>
-                    <input type="text" id="directorPelicula" name="director"><br>
-                    <label for="sinopsisPelicula">Sinopsis</label>
-                    <input type="text" id="sinopsisPelicula" name="sinopsis"><br>
-                    <label for="fechaPelicula">Fecha</label>
-                    <input type="text" id="fechaPelicula" name="fecha"><br>
+                <h2 class="text-center">Introduce los datos</h2>
+                <form action="" role="form" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="idPelicula">Id</label>
+                        <input type="text" id="idPelicula" class="form-control" name="idPelicula" size="3" disabled>
+                       
+                        
+                    </div>   
+                    <div class="form-group">
+                        <label for="tituloPelicula">Título</label>
+                        <input type="text" id="tituloPelicula" class="form-control" name="titulo">
+                    </div>
+                     <div class="form-group">
+                        <label for="directorPelicula">Director</label>
+                        <input type="text" id="directorPelicula" class="form-control" name="director">
+                    </div>
+                    <div class="form-group">
+                        <label for="sinopsisPelicula">Sinopsis</label>
+                        <input type="text" id="sinopsisPelicula" class="form-control" name="sinopsis">
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaPelicula">Fecha</label>
+                        <input type="text" id="fechaPelicula" class="form-control" name="fecha">
+                    </div>                    
                 </form>
             </div>
-            <div class="content">
-                <button id="botonGuardar" class="boton">Guardar</button>
-                <button id="botonModificar" class="boton">Modificar</button>
-                <button id="botonBorrar" class="boton">Borrar</button>
+            <div class="row">
+                <div class="col-sm-4">
+                <button id="botonGuardar" class="btn btn-primary btn-lg">Guardar</button>
+                </div>
+                <div class="col-sm-4">
+                <button id="botonModificar" class="btn btn-warning btn-lg">Modificar</button>
+                </div>
+                <div class="col-sm-4">
+                <button id="botonBorrar" class="btn btn-danger btn-lg">Borrar</button>
+                </div>
             </div>
-            <div class="content">
-                <h2>Peliculas guardadas</h2>
-                <table id="tablaPeliculas">
+            <div class="row">
+                <h2 class="text-center">Peliculas guardadas</h2>
+                <table id="tablaPeliculas" class="table table-striped">
                     <tr>
                         <th>ID</th>
                         <th>Titulo</th>
