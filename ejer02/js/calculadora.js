@@ -2,25 +2,55 @@
 
 
 function Calculadora(){
-    
+        this.memoria = 0;
     }
 
 Calculadora.prototype.calcular = function(arg){
     return eval(arg);
 }
 
-Calculadora.prototype.sumar = function(arg1){
+/*Calculadora.prototype.sumar = function(arg1){
     this.resultado = 0;
     for(let i = 0; i < arguments.length; i++){
         this.resultado += arguments[i];
     }
     return this.resultado;
 
+}*/
+
+
+
+Calculadora.prototype.operacion = function(num,operacion){
+    
+   
+   
+    switch(operacion){
+    case "+":
+        this.memoria+=num;
+        break;
+    case "-":
+        this.memoria-=num;
+        break;
+    default:
+        this.memoria=num;
+    }
+    
+    return this.memoria;
 }
+
+var calculadora3 = new Calculadora();
+
+
+console.log(calculadora3.operacion(16));
+console.log(calculadora3.operacion(32,"-"));
+
+
+
+
 
 //TODO:funcion que verifique que lo que entra es un number
 
-
+/*
 var calculadora2 = new Calculadora();
 
 console.log(calculadora2.sumar(10,20,40));
