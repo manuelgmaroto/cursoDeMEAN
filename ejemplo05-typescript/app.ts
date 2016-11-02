@@ -140,9 +140,103 @@ class Politico extends Ser{
 let politico: Politico = new Politico();
 
 
-
+//funcion que puedo usar en cualquier lado
 let funcionLambda = (uno: number,dos: number) =>{
     return uno + dos;
 }
 
 console.log("Resultado de sumar 1 y 3 :" + funcionLambda(1,3));
+
+const PI = 3.141592654;
+//PI = 23; //No lo permite
+
+//Deestructuracion conjunto de varriables. Deshace el objeto y lo convierte en variables sueltas
+let {variable1,variable2} = {variable1:"valor1",variable2:"valor2"};
+console.log(variable1);
+console.log(variable2);
+
+/// gestion parametros con ...
+function dameLosCamposporConsola(campo1: string,campo2: number,...elRestoDecampos){
+    console.log(campo1);
+    console.log(campo2);
+    console.log(elRestoDecampos);
+    console.log("for--in");
+    for(let posicion in elRestoDecampos){
+        console.log("El campo en la posicion: " + posicion + " es " + elRestoDecampos[posicion]);
+    }
+    console.log("for--of");
+    for(let campo of elRestoDecampos){
+        console.log("El campo es: " + campo);
+    }
+}
+
+dameLosCamposporConsola("uno",2,"tres","cuatro",5,"seis");
+
+//Para campos en los  que se usa unos campos concretos
+enum TipoDeVia{
+    Calle = 7, //podemos alterar el valor
+    Via, 
+    Rua, 
+    Plaza,
+    Camino, 
+    Avenida, 
+    Carretera
+}
+
+enum Puntos{
+    TouchDown = 5,
+    Goal = 3
+}
+
+var miTipoDeVia: TipoDeVia = TipoDeVia.Calle;
+console.log("Tipo de via : " + miTipoDeVia);
+console.log("Tipo de via: " + TipoDeVia[miTipoDeVia]);
+
+//creo una funcion para  comparar
+namespace TipoDeVia{
+    export function esAvenida(texto: string):TipoDeVia{//lo exporto para que sea funcional en todos los puntos de via
+    if(texto=="Avda"){
+        return TipoDeVia.Avenida;
+    }
+}
+}
+
+var avenida = TipoDeVia.esAvenida("Avd");
+
+
+//invierte cualquier tipo de array...
+//Es un generico que puede usarse pra cualquier tipo que se define cuando se va a usar
+function invertir<T> (elementos: T[]): T[]{
+    let invertido: T[] = [];
+    for (let posicion=0, posicionInvertido = elementos.length-1;
+    posicion < elementos.length;
+    posicion++,posicionInvertido--){
+        invertido[posicionInvertido]=elementos[posicion];
+    }
+    return invertido;
+}
+
+console.log(invertir<string>(["uno","dos"]));
+
+//DAO generico que permite dar de alta y de baja lo que sea
+abstract class DAOGenerico <T>{
+    abstract add(objeto: T);
+    abstract del(objeto: T);
+    stringfy(objeto: T){
+        return objeto+"";
+    }
+}
+
+
+class PersonaDAO extends DAOGenerico<Persona>{
+    private personas: Persona[];
+    add(persona: Persona){
+        this.personas.push(persona);
+    }
+    del(persona: Persona){
+        //recorrer, buscar y eliminar
+    }
+}
+
+var dao: DAOGenerico<Persona> = null;
+dao.add(new Persona("","",""));
