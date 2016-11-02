@@ -58,7 +58,7 @@ function darResultado(){
 function borrar(){
     display.value = 0;
     numero =0;
-    calculadora1.operacion(0);
+    calculadora1.borrarMemoria();
 }
 
 

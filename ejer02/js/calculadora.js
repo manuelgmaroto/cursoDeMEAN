@@ -20,6 +20,7 @@ Calculadora.prototype.operacion = function(num,operacion){
     }else if(operacion == "-"){
         this.memoria -= num;
     }
+   
     return this.memoria;
 
    /*
@@ -36,6 +37,10 @@ Calculadora.prototype.operacion = function(num,operacion){
     
     return this.memoria;
     */
+}
+
+Calculadora.prototype.borrarMemoria = function(){
+    this.memoria = 0;
 }
 
 //TODO no borra bien
