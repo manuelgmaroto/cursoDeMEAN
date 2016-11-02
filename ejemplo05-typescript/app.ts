@@ -72,6 +72,77 @@ class Ciudadano extends Persona {
     }
 
 }
-
+//polimorfismo: es ciudadano y persona a la vez
 var ciudadanoPepe = new Ciudadano("Pepe",null,null,"1");
 console.log(ciudadanoPepe.stringify());
+
+class SerVivo{
+    static totalDeSeresVivos: number = 0;
+    clasificacion: string;
+    constructor(clasificacion: string){
+        this.clasificacion = clasificacion;
+        SerVivo.totalDeSeresVivos += 1;
+    }
+    stringify(): string{//metodo de instancia, accede a la instancia. No es un metodo a nivel de clase
+        return "clasificacion" + this.clasificacion;
+    }
+}
+
+let pez1: SerVivo = new SerVivo("marino");
+let pez2: SerVivo = new SerVivo("marino");
+let pez3: SerVivo = new SerVivo("marino");
+let tigre: SerVivo = new SerVivo("terrestre");
+let leon: SerVivo = new SerVivo("terrestre");
+console.log("Total de seres vivos = " + SerVivo.totalDeSeresVivos);
+//Tenemos que crear metodos de acceso, cada campo con un visivilidad distinta
+//desde la instancia los privados no son accesibles
+class Padre{
+    public almacenPublico: number;
+    protected almacenProtegido: number; //desde fuera no pero desde el hijo si es accesible
+    private almacenPrivado: number;
+}
+let padre = new Padre();
+
+class HijoDePadre extends Padre{
+    constructor(){
+        super();
+        
+    }
+}
+
+abstract class Ser{//solo se crea a través de un hijo
+    static totalDeSeres: number = 0;
+    protected clasificacion: string;
+    constructor(clasificacion: string){
+        this.clasificacion = clasificacion;
+        SerVivo.totalDeSeresVivos += 1;
+    }
+    stringify(): string{//metodo de instancia, accede a la instancia. No es un metodo a nivel de clase
+        return "clasificacion" + this.clasificacion;
+    }
+    abstract desplazamiento(): string;//No hace falta implementarlo aqui el metodo, lo hacen los hijos
+    abstract alimentarse(): string;
+    //abstract ValorParaOrdenar(): string;
+}
+class Politico extends Ser{
+    constructor(){
+        super("hola");
+    }
+    desplazamiento(): string{
+        return "En coche oficial";
+    }
+    alimentarse(): string{
+        return "Dame dinero en sobre";
+    }
+}
+//let ser1: Ser= new Ser(); esto no se puede
+
+let politico: Politico = new Politico();
+
+
+
+let funcionLambda = (uno: number,dos: number) =>{
+    return uno + dos;
+}
+
+console.log("Resultado de sumar 1 y 3 :" + funcionLambda(1,3));
