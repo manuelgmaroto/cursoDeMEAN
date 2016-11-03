@@ -1,17 +1,20 @@
 $(document).ready(inicializeEvents);
 var accion, datosPelicula;
-//TODO:cargar peliculas al iniciar
+
 function inicializeEvents(){
     
     $("#botonModificar").click(modifyMovie);
     $("#botonBorrar").click(removeMovie);
     $("tr").click(classRemove);
-    accion = "GET";
-    peticionAjaxGenerica();
     $("#botonGuardar").click(crearDatos);
+    obtenerPeliculas();
     
 }
-
+//TODO que no borre la cabecera
+function obtenerPeliculas(){
+    accion = "GET";
+    peticionAjaxGenerica();
+}
 
 function modifyMovie(){
 
@@ -90,4 +93,5 @@ function crearDatos(){
     datosPelicula = {"titulo": nuevaPelicula,"director":nuevoDirector,"sinopsis": nuevaSinopsis,"fecha":nuevaFecha};
     accion = "POST";
     peticionAjaxGenerica();
+    obtenerPeliculas();
 }
