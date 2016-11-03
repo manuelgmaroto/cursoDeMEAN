@@ -27,20 +27,6 @@
       "director": "Fred Smith",
       "sinopsis": "Una ciudad del oeste se desmadra",
       "fecha": 1972
-    },
-    {
-      "titulo": "Nueva pelicula",
-      "director": "Otro Director",
-      "sinopsis": "Empieza",
-      "fecha": 2134,
-      "id": 5
-    },
-    {
-      "titulo": "mas ademas",
-      "director": "Juan Sin Control",
-      "sinopsis": "Desmadrao",
-      "fecha": 2134,
-      "id": 6
     }
   ]
 }
