@@ -5,7 +5,7 @@ function inicializeEvents(){
     
     $("#botonModificar").click(modifyMovie);
     $("#botonBorrar").click(removeMovie);
-    $("tr").click(classRemove);
+    
     $("#botonGuardar").click(crearDatos);
     obtenerPeliculas();
     
@@ -57,9 +57,10 @@ function peticionAjaxGenerica(){
 function peticionCompletada(data,status,jqXHR){
     //alert("Peticion completada con status " + status + " : " + data);
     for (let i = 0; i < data.length; i++){
-        $("#tablaPeliculas").append("<tr><td>"+ data[i].id +"</td><td>"+ data[i].titulo +"</td><td>"+ data[i].director +"</td><td>"+ data[i].sinopsis +"</td><td>"+ data[i].fecha +"</td></tr>");
-        $("tr").click(classRemove);
+        $("#tablaPeliculas").append("<tr class='fila'><td>"+ data[i].id +"</td><td>"+ data[i].titulo +"</td><td>"+ data[i].director +"</td><td>"+ data[i].sinopsis +"</td><td>"+ data[i].fecha +"</td></tr>");
+        
     }
+    $("tr.fila").click(classRemove);
 }
 
 function peticionFallida(jqXHR,status,error){//el jqXHR es el objeto ajax que lo devuelve
