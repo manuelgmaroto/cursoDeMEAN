@@ -23,7 +23,13 @@ function modifyMovie(){
 function removeMovie(){
     //let position = $("tr").length-1;
     //$("tr").eq(position).remove();
+    
+    //TODO obtener valor del id de la pelicula a borrar
     $(".remove").remove();
+
+    $.ajax('http://localhost:3000/peliculas/'+ valor +'', {
+        method: 'DELETE'
+    });
 }
 
 function classRemove(){
@@ -57,11 +63,13 @@ function peticionAjaxGenerica(){
 function peticionCompletada(data,status,jqXHR){
     //alert("Peticion completada con status " + status + " : " + data);
     for (let i = 0; i < data.length; i++){
-        $("#tablaPeliculas").append("<tr class='fila'><td>"+ data[i].id +"</td><td>"+ data[i].titulo +"</td><td>"+ data[i].director +"</td><td>"+ data[i].sinopsis +"</td><td>"+ data[i].fecha +"</td></tr>");
+        $("#tablaPeliculas").append("<tr class='fila'><td class='hidden'>"+ data[i].id +"</td><td>"+ data[i].titulo +"</td><td>"+ data[i].director +"</td><td>"+ data[i].sinopsis +"</td><td>"+ data[i].fecha +"</td></tr>");
         
     }
     $("tr.fila").click(classRemove);
+    
 }
+
 
 function peticionFallida(jqXHR,status,error){//el jqXHR es el objeto ajax que lo devuelve
     console.log("Error al procesar la peticion");

@@ -21,7 +21,7 @@
             <div class="content">
                 <h2 class="text-center">Introduce los datos</h2>
                 <form action="" role="form" class="form-horizontal">
-                    <div class="form-group">
+                    <div class="form-group hidden">
                         <label for="idPelicula">Id</label>
                         <input type="text" id="idPelicula" class="form-control" name="idPelicula" size="3" disabled>
                        
@@ -50,7 +50,7 @@
                 <button id="botonGuardar" class="btn btn-primary btn-lg">Guardar</button>
                 </div>
                 <div class="col-sm-4">
-                <button id="botonModificar" class="btn btn-warning btn-lg">Modificar</button>
+                <button id="botonModificar" class="btn btn-warning btn-lg disabled">Modificar</button>
                 </div>
                 <div class="col-sm-4">
                 <button id="botonBorrar" class="btn btn-danger btn-lg">Borrar</button>
@@ -60,7 +60,7 @@
                 <h2 class="text-center">Peliculas guardadas</h2>
                 <table id="tablaPeliculas" class="table">
                     <tr>
-                        <th>ID</th>
+                        <th class="hidden">ID</th>
                         <th>Titulo</th>
                         <th>Director</th>
                         <th>Sinopsis</th>
