@@ -22,5 +22,5 @@ export class MiComponenteNuevoComponent implements OnInit {
   ngOnInit() {
     console.log("Inicializado mi nuevo componente");
   }
-
+  
 }

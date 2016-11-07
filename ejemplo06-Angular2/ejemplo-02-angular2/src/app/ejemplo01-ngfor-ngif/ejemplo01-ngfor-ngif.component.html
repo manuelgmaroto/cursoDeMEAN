@@ -2,6 +2,13 @@
   Contenido de la variable {{variableDeInstancia}}
 </p>
 <br>  
+<button (click)="cambiarEstadoInformacion()">Mostrar informacion</button>
+<ul *ngIf="mostrarInformacion">
+  <li>Informacion mostrada</li>
+</ul>
+<br>
 <ul>
-  <li *ngFor="let numero of tomaArray">{{numero}}</li>
+  <li *ngFor="let numero of tomaArray">
+      <span [ngStyle]="{'color': colorEnPares(numero) }">{{ numero }}</span>
+    </li>
 </ul>
