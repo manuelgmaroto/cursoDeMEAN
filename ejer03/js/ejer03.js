@@ -1,5 +1,5 @@
 $(document).ready(inicializeEvents);
-var accion, datosPelicula;
+var accion, datosPelicula, urlServidor, filaSeleccionada;
 
 function inicializeEvents(){
     
@@ -13,6 +13,7 @@ function inicializeEvents(){
 //TODO que no borre la cabecera
 function obtenerPeliculas(){
     accion = "GET";
+    urlServidor = "http://localhost:3000/peliculas";
     peticionAjaxGenerica();
 }
 
@@ -26,14 +27,19 @@ function removeMovie(){
     
     //TODO obtener valor del id de la pelicula a borrar
     $(".remove").remove();
-
+    urlServidor = "http://localhost:3000/peliculas/" + filaSeleccionada;
+    accion = "DELETE";
+    peticionAjaxGenerica();
+    /*
     $.ajax('http://localhost:3000/peliculas/'+ valor +'', {
         method: 'DELETE'
     });
+    */
 }
 
 function classRemove(){
     $(this).addClass("remove");
+    filaSeleccionada = $(this).children(":first-child").text();
     
 }
 /*
@@ -52,7 +58,7 @@ function peticionAjaxGenerica(){
         //tipo de dato esperado
         dataType:"json",
         //URL de comunicacion con el servicio
-        url: "http://localhost:3000/peliculas"
+        url: urlServidor
     })
     .done(peticionCompletada)
     .fail(peticionFallida);
@@ -76,6 +82,18 @@ function peticionFallida(jqXHR,status,error){//el jqXHR es el objeto ajax que lo
     console.log("Status " + status);
     console.log("Error " + error );
 }
+
+function crearDatos(){
+    let nuevaPelicula = $("#tituloPelicula").val();
+    let nuevoDirector = $("#directorPelicula").val();
+    let nuevaSinopsis = $("#sinopsisPelicula").val();
+    let nuevaFecha = $("#fechaPelicula").val();
+    datosPelicula = {"titulo": nuevaPelicula,"director":nuevoDirector,"sinopsis": nuevaSinopsis,"fecha":nuevaFecha};
+    accion = "POST";
+    urlServidor = "http://localhost:3000/peliculas";
+    peticionAjaxGenerica();
+    obtenerPeliculas();
+}
 /*
 function enviarDatos(arg){
     
@@ -94,13 +112,3 @@ function envioCompleto(){
 */
 
 //Crea el objeto de datos para enviar
-function crearDatos(){
-    let nuevaPelicula = $("#tituloPelicula").val();
-    let nuevoDirector = $("#directorPelicula").val();
-    let nuevaSinopsis = $("#sinopsisPelicula").val();
-    let nuevaFecha = $("#fechaPelicula").val();
-    datosPelicula = {"titulo": nuevaPelicula,"director":nuevoDirector,"sinopsis": nuevaSinopsis,"fecha":nuevaFecha};
-    accion = "POST";
-    peticionAjaxGenerica();
-    obtenerPeliculas();
-}
