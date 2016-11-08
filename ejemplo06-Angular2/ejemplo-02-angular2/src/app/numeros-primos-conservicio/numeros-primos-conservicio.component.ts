@@ -15,7 +15,7 @@ export class NumerosPrimosConservicioComponent implements OnInit {
   listaDeNumeros: number[];
   
   mostrarInformacion: boolean = false;
-  //inicializo con el servicio
+  //inicializo con el servicio declarandun una variable de tipo del servicio que hemos importado e incorporado en providers.
   constructor(private numerosPrimosService: NumerosPrimosService) {
       this.listaDeNumeros = this.numerosPrimosService.listaDeNumeros;
    }
