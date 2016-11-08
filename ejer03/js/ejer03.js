@@ -2,6 +2,7 @@ $(document).ready(inicializeEvents);
 var accion, datosPelicula, urlServidor, filaSeleccionada;
 var peliculasParaBorrar = [];
 
+//Inicia al cargar la pagina
 function inicializeEvents(){
     
     $("#botonModificar").click(modifyMovie);
@@ -12,6 +13,7 @@ function inicializeEvents(){
     $(".quitarBorrado").click(quitarBorrado)
 }
 
+//Obtiene las peliculas del json
 function obtenerPeliculas(){
     accion = "GET";
     urlServidor = "http://localhost:3000/peliculas";
@@ -22,6 +24,7 @@ function modifyMovie(){
 
 }
 
+//Borra las películas marcadas con la clase .remove
 function removeMovie(){
     //let position = $("tr").length-1;
     //$("tr").eq(position).remove();
@@ -32,6 +35,7 @@ function removeMovie(){
         accion = "DELETE";
         peticionAjaxGenerica();
     }
+    peliculasParaBorrar = [];
     
     /*
     $.ajax('http://localhost:3000/peliculas/'+ valor +'', {
@@ -40,6 +44,7 @@ function removeMovie(){
     */
 }
 
+//Guarda en un array los id de las peliculas para borrar
 function classRemove(){
     $(this).addClass("remove");
     filaSeleccionada = $(this).children(":first-child").text();
@@ -68,8 +73,7 @@ function peticionAjaxGenerica(){
     .fail(peticionFallida);
 }
 
-//Acabar peticion ajax
-
+//Construye las filas de la tabla a partir de los datos del json y les añade el evento para que cuando hagamos click quede marcadas para borrar 
 function peticionCompletada(data,status,jqXHR){
     //alert("Peticion completada con status " + status + " : " + data);
     for (let i = 0; i < data.length; i++){
@@ -87,6 +91,7 @@ function peticionFallida(jqXHR,status,error){//el jqXHR es el objeto ajax que lo
     console.log("Error " + error );
 }
 
+//Crea el json con las datos que se han introducido en los input cuando pulsamos guardar
 function crearDatos(){
     let nuevaPelicula = $("#tituloPelicula").val();
     let nuevoDirector = $("#directorPelicula").val();
@@ -100,8 +105,10 @@ function crearDatos(){
     obtenerPeliculas();
 }
 
+//Quita la clase .remove cuando pulsamos el boton de no borrar en el modal
 function quitarBorrado(){
     $("tr").removeClass("remove");
+    peliculasParaBorrar = [];
 }
 /*
 function enviarDatos(arg){
