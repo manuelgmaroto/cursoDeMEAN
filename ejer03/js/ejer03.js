@@ -8,7 +8,7 @@ function inicializeEvents(){
     
     $("#botonGuardar").click(crearDatos);
     obtenerPeliculas();
-    
+    $(".quitarBorrado").click(quitarBorrado)
 }
 //TODO que no borre la cabecera
 function obtenerPeliculas(){
@@ -92,7 +92,12 @@ function crearDatos(){
     accion = "POST";
     urlServidor = "http://localhost:3000/peliculas";
     peticionAjaxGenerica();
+    $("input").val("");
     obtenerPeliculas();
+}
+
+function quitarBorrado(){
+    $("tr").removeClass("remove");
 }
 /*
 function enviarDatos(arg){

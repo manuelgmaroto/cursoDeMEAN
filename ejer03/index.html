@@ -53,7 +53,7 @@
                 <button id="botonModificar" class="btn btn-warning btn-lg disabled">Modificar</button>
                 </div>
                 <div class="col-sm-4">
-                <button id="botonBorrar" class="btn btn-danger btn-lg">Borrar</button>
+                <button  class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal" >Borrar</button>
                 </div>
             </div>
             <div class="row">
@@ -68,7 +68,31 @@
                     </tr>
                  </table>
             </div>
-           
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close quitarBorrado" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">¿Seguro que quieres borrar?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <button id="botonBorrar" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal" >Cofirmar borrado</button>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default quitarBorrado" data-dismiss="modal">No borrar</button>
+                    </div>
+                    </div>
+                    </div>
+
+                </div>
+                </div>
+
         </div>
+
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

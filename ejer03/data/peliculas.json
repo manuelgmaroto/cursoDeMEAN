@@ -1,13 +1,6 @@
 {
   "peliculas": [
     {
-      "id": 1,
-      "titulo": "La escopeta nacional",
-      "director": "Luis Garcia Berlanga",
-      "sinopsis": "El marqués de Leguineche organiza una cacería",
-      "fecha": 1978
-    },
-    {
       "id": 2,
       "titulo": "Cazafantasmas",
       "director": "John Smith",
