@@ -1,5 +1,6 @@
 $(document).ready(inicializeEvents);
 var accion, datosPelicula, urlServidor, filaSeleccionada;
+var peliculasParaBorrar = [];
 
 function inicializeEvents(){
     
@@ -10,7 +11,7 @@ function inicializeEvents(){
     obtenerPeliculas();
     $(".quitarBorrado").click(quitarBorrado)
 }
-//TODO que no borre la cabecera
+
 function obtenerPeliculas(){
     accion = "GET";
     urlServidor = "http://localhost:3000/peliculas";
@@ -25,11 +26,13 @@ function removeMovie(){
     //let position = $("tr").length-1;
     //$("tr").eq(position).remove();
     
-    //TODO obtener valor del id de la pelicula a borrar
-    $(".remove").remove();
-    urlServidor = "http://localhost:3000/peliculas/" + filaSeleccionada;
-    accion = "DELETE";
-    peticionAjaxGenerica();
+    for(let i = 0; i < peliculasParaBorrar.length; i++){
+        $(".remove").remove();
+        urlServidor = "http://localhost:3000/peliculas/" + peliculasParaBorrar[i];
+        accion = "DELETE";
+        peticionAjaxGenerica();
+    }
+    
     /*
     $.ajax('http://localhost:3000/peliculas/'+ valor +'', {
         method: 'DELETE'
@@ -40,6 +43,7 @@ function removeMovie(){
 function classRemove(){
     $(this).addClass("remove");
     filaSeleccionada = $(this).children(":first-child").text();
+    peliculasParaBorrar.push(filaSeleccionada);
     
 }
 /*
