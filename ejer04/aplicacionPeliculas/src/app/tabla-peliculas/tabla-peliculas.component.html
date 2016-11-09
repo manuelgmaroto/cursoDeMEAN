@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Titulo</th>
+    <th>Director</th>
+    <th>Año</th>
+  </tr>
+  <tr *ngFor="let pelicula of peliculas">
+    <td>{{pelicula.id}}</td>
+    <td>{{pelicula.titulo}}</td>
+    <td>{{pelicula.director}}</td>
+    <td>{{pelicula.anio}}</td>
+  </tr>
+</table>
