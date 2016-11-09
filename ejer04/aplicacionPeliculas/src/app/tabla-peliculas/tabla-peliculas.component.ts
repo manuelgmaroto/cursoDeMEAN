@@ -33,4 +33,8 @@ export class TablaPeliculasComponent implements OnInit {
   ngOnInit() {
   }
 
+  ordenarPeliculas(){
+    this.peliculas.reverse();
+  }
+
 }
