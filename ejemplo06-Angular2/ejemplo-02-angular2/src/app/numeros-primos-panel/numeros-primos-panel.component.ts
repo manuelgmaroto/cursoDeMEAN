@@ -9,7 +9,8 @@ import { NumerosPrimosService} from '../numeros-primos.service';
 })
 export class NumerosPrimosPanelComponent implements OnInit {
 
-  listaDeNumeros: number[];
+  private listaDeNumeros: number[];
+  private mostrarInformacion:boolean = false;
   constructor(private numerosPrimosService: NumerosPrimosService) { 
     this.listaDeNumeros = this.numerosPrimosService.listaDeNumeros;
 }
@@ -23,6 +24,21 @@ export class NumerosPrimosPanelComponent implements OnInit {
       } else{
         return "blue"; 
       }
+  }
+
+  tipoDeNumero(numero:number){
+    if(this.numerosPrimosService.esPrimo(numero)){
+        return "Es un numero primo";
+      } else if (this.numerosPrimosService.esMultiploDeTres(numero)){
+        return "Es multiplo de 3";
+      } else{
+        return "No es nada de nada"; 
+      }
+  }
+
+  eventoDeFilaRecibido(eventoRecibido:boolean):void{
+    this.mostrarInformacion = eventoRecibido;
+    console.log("evento recibido");
   }
 
   ngOnInit() {
