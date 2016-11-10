@@ -1,0 +1,4 @@
+//guarda todos los array que han venido en le ejecucion 
+for(let i=0; i < process.argv.length;i++){
+    console.log('Parametro: ' + i + ' - ' + process.argv[i]);
+}
