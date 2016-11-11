@@ -7,8 +7,30 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Iniciar programa",
+            "name": "Ejemplo 01 programa",
+            "program": "${workspaceRoot}/ejem01-nodejs-base.js",
+
+            "cwd": "${workspaceRoot}",
+            "args": []
+
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Ejemplo 02 file-system sincrono programa",
             "program": "${workspaceRoot}/ejem02-require.js",
+
+            "cwd": "${workspaceRoot}",
+            "args": [
+                "ejem02-require.js"
+            ]
+
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Ejemplo 03 file-system asincrono programa",
+            "program": "${workspaceRoot}/ejem03-async.js",
 
             "cwd": "${workspaceRoot}",
             "args": [
